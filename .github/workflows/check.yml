@@ -1,29 +1,20 @@
-name: CI
+name: hr-functionapps
 
 on:
   workflow_dispatch:
     inputs:
       environment:
-        type: environment
-        description: Select the environment
-      boolean:
-        type: boolean
-        description: True or False
-      choice:
         type: choice
-        description: Make a choice
+        description: 'Select env:- dev/qa/prod'
+        required: true
         options:
-        - foo
-        - bar
-        - baz
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: greet
-        run: | 
-          echo "environment is ${{ github.event.inputs.environment }} / ${{ inputs.environment }}"
-          echo "boolean is ${{ github.event.inputs.boolean }}" / ${{ inputs.boolean }} 
-          echo "choice is ${{ github.event.inputs.choice }}" / ${{ inputs.choice }}
+        - dev
+        - qa
+        - prod  
+      functionApp:
+        type: choice
+        description: 'Select function app to deploy'
+        required: true
+        options:
+        - hr-functionappcore
+        - hr-associatesync-func  
