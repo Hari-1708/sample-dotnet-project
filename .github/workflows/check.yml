@@ -18,3 +18,16 @@ on:
         options:
         - hr-functionappcore
         - hr-associatesync-func  
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, azure]
+    env:
+      ENV: '${{ github.event.inputs.environment }}'  
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@v2
+    - name: greet
+      run: | 
+          echo "environment is ${{ github.event.inputs.environment }} / ${{ inputs.environment }}-${{ env.ENV }}.parameters.json "        
+          echo "Function app is ${{ github.event.inputs.functionApp }}" / ${{ inputs.functionApp }}-${{ env.ENV }}.parameters.json "     
