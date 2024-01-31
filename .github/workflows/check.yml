@@ -31,3 +31,5 @@ jobs:
       run: | 
           echo "environment is ${{ github.event.inputs.environment }} / ${{ inputs.environment }}-${{ env.ENV }}.parameters.json "        
           echo "Function app is ${{ github.event.inputs.functionApp }} / ${{ inputs.functionApp }}-${{ env.ENV }}.parameters.json "     
+          echo " ${{ github.run_id }}"
+          echo " ${{ github.run_number }}"
