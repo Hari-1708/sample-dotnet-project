@@ -11,13 +11,13 @@ on:
         - dev
         - qa
         - prod  
-      functionApp:
+      Application:
         type: choice
         description: 'Select function app to deploy'
         required: true
         options:
-        - hr-functionappcore
-        - hr-associatesync-func  
+        - App-1
+        - App-2 
 
 jobs:
   deploy:
